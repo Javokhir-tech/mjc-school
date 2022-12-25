@@ -11,5 +11,6 @@ public class StringUtils {
     public static void main(String[] args) {
         var stringUtils = new StringUtils();
         System.out.println(stringUtils.isPositive("2"));
+        System.out.println(stringUtils.isPositive("-2"));
     }
 }
