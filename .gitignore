@@ -1,6 +1,7 @@
 
 /build_tools/.idea/
 /.idea/
-/build_tools/.gradle/
-/build_tools/build/
-/build_tools/gradle/
+/build_tools/utils/.gradle/
+/build_tools/utils/build/
+/build_tools/utils/.idea/
+/build_tools/utils/gradle/
