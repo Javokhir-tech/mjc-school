@@ -6,3 +6,5 @@
 /build_tools/utils/.idea/
 /build_tools/utils/gradle/
 /build_tools/multi_project/gradle/
+/build_tools/multi_project/.gradle/
+/build_tools/multi_project/build/
