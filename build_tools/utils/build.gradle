@@ -1,0 +1,30 @@
+plugins {
+    id 'eclipse'
+    id 'java'
+}
+
+jar {
+    baseName("utils")
+    version("1.3.5")
+    manifest {
+        attributes 'Main-Class': 'com.epam.mjc.StringUtils'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+}
+
+test {
+    useJUnitPlatform()
+}
