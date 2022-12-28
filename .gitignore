@@ -10,3 +10,6 @@
 /build_tools/multi_project/build/
 /build_tools/multi_project/core/build/
 /build_tools/multi_project/api/build/
+/rest-api-basics/.gradle/
+/rest-api-basics/.idea/
+/rest-api-basics/gradle/
