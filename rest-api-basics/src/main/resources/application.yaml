@@ -4,3 +4,4 @@ datasource:
   url: jdbc:postgresql://localhost:5432/gifts_db
   username: postgres
   password: postgres
+  changelog: classpath:changeLog-master.xml

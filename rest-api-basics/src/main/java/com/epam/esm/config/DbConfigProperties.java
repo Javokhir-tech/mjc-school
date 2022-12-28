@@ -14,7 +14,6 @@ public class DbConfigProperties {
     private String datasourceUsername;
     @Value("${datasource.password}")
     private String datasourcePassword;
-
     @Value("${datasource.changelog}")
     private String dataSourceChangeLog;
 }
