@@ -2,6 +2,7 @@ package com.epam.esm.config;
 
 import liquibase.integration.spring.SpringLiquibase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,14 +14,24 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 public class DbConfig {
 
-    private final DbConfigProperties dbProperties;
+    @Value(value = "${datasource.driver}")
+    private String datasourceDriver;
+    @Value(value = "${datasource.url}")
+    private String datasourceUrl;
+    @Value(value = "${datasource.username}")
+    private String datasourceUsername;
+    @Value(value = "${datasource.password}")
+    private String datasourcePassword;
+    @Value(value = "${datasource.changelog}")
+    private String dataSourceChangeLog;
+
     @Bean
     public DataSource dataSource() {
         var dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(dbProperties.getDatasourceDriver());
-        dataSource.setUrl(dbProperties.getDatasourceUrl());
-        dataSource.setUsername(dbProperties.getDatasourceUsername());
-        dataSource.setPassword(dbProperties.getDatasourcePassword());
+        dataSource.setDriverClassName(datasourceDriver);
+        dataSource.setUrl(datasourceUrl);
+        dataSource.setUsername(datasourceUsername);
+        dataSource.setPassword(datasourcePassword);
         return dataSource;
     }
 
@@ -32,9 +43,10 @@ public class DbConfig {
     @Bean
     public SpringLiquibase springLiquibase() {
         var liquiBase = new SpringLiquibase();
-        liquiBase.setChangeLog(dbProperties.getDataSourceChangeLog());
+        liquiBase.setChangeLog(dataSourceChangeLog);
         liquiBase.setDataSource(dataSource());
         return liquiBase;
     }
+
 
 }

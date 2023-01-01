@@ -1,7 +1,0 @@
-
-datasource:
-  driver: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/gifts_db
-  username: postgres
-  password: postgres
-  changelog: classpath:changelog-master.xml

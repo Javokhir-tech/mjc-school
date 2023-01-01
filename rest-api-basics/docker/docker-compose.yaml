@@ -34,3 +34,19 @@ services:
       - "5050:80"
     networks:
       - gift-net
+
+  rest-api-basics:
+    container_name: rest-api-basics
+    image: rest-api-basics:latest
+    volumes:
+      - ./tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml
+    environment:
+      DATASOURCE_DRIVER: org.postgresql.Driver
+      DATASOURCE_URL: jdbc:postgresql://db:5432/gifts
+      DATASOURCE_USERNAME: postgres
+      DATASOURCE_PASSWORD: postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - gift-net
